@@ -19,7 +19,7 @@ const Home = () => {
   useEffect(() => {
     let getdata = async () => {
       try {
-        let allpost = await axios.get("/api/posts")
+        let allpost = await axios.get("https://blog-web-backend-vzqz.onrender.com/api/posts")
         let data = allpost.data.data
         // console.log(data + "--------------");
         let postfourone = [], postthree = [], postfourtwo = [], populerpost = []
