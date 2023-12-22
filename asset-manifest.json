@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ArtiX_frontend/static/css/main.dbf99ba6.css",
+    "main.js": "/ArtiX_frontend/static/js/main.71f1c596.js",
+    "static/js/787.9e9f4ffd.chunk.js": "/ArtiX_frontend/static/js/787.9e9f4ffd.chunk.js",
+    "index.html": "/ArtiX_frontend/index.html",
+    "main.dbf99ba6.css.map": "/ArtiX_frontend/static/css/main.dbf99ba6.css.map",
+    "main.71f1c596.js.map": "/ArtiX_frontend/static/js/main.71f1c596.js.map",
+    "787.9e9f4ffd.chunk.js.map": "/ArtiX_frontend/static/js/787.9e9f4ffd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dbf99ba6.css",
+    "static/js/main.71f1c596.js"
+  ]
+}
