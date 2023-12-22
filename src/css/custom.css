@@ -1,0 +1,119 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+.m--auto{
+    margin-left: auto;
+    margin-right: auto;
+}
+.flex{
+    display: flex;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.m-10{
+    margin: 10px;
+}
+.mt-5{
+    margin-top: 5px;
+}
+.mt-8{
+    margin-top: 8px;
+}
+.mt-10{
+    margin-top: 10px;
+}
+.mt-12{
+    margin-top: 12px;
+}
+.mt-20{
+    margin-top: 20px;
+}
+.mt-15{
+    margin-top: 15px;
+}
+.mt-24{
+    margin-top: 24px;
+}
+.mt-30{
+    margin-top: 30px;
+}
+.mt-40{
+    margin-top: 40px;
+}
+
+.py60{
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.py70{
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.p-10{
+    padding: 10px;
+}
+.p-20{
+    padding: 20px;
+}
+.p-30{
+    padding: 30px;
+}
+.flex{
+    display: flex;
+}
+.s-b{
+    justify-content: space-between;
+}
+.j-c{
+    justify-content: center;
+}
+.a-c{
+    align-items: center;
+}
+.t-center{
+    text-align: center;
+}
+.dnone{
+    display: none;
+}
+.dblock{
+    display: block;
+}
+.rel{
+    position: relative;
+}
+.abs{
+    position: absolute;    
+}
+.ms--auto{
+    margin-left: auto;
+}
+.me--auto{
+    margin-right: auto;
+}
+
+.font{
+    font-family: 'Jost', sans-serif;
+}
+
+@media screen and (max-width:768px) {
+    .py60,.py70{
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
+   
+}
+
+.linemain{
+    z-index: -1;
+    transform: translateY(-49px);
+}
