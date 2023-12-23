@@ -9,9 +9,9 @@ const Footer = () => {
   useEffect(() => {
     let getdata = async () => {
       try {
-        let allcategory = await axios.get("/api/allcategory");
+        let allcategory = await axios.get("https://blog-web-backend-vzqz.onrender.com/api/allcategory");
         setcategory(allcategory.data.data);
-        console.log(category);
+        // console.log(category);
       } catch (error) {
         console.log(error.message);
       }
@@ -25,7 +25,7 @@ const Footer = () => {
   }
   let gmailvalue = async(e)=>{
     setGmail(e.target.value)
-    console.log(Gmail);
+    // console.log(Gmail);
   }
   let gamailsend = async(e)=>{
     e.preventDefault()
@@ -33,8 +33,8 @@ const Footer = () => {
       gmail : Gmail
     }
     setGmail('')
-    await axios.post("/api/gmail" ,data)
-    console.log(Gmail + "done");
+    await axios.post("https://blog-web-backend-vzqz.onrender.com/api/gmail" ,data)
+    console.log(Gmail + "Sent Email");
   }
   return (
     <>

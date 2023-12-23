@@ -96,7 +96,7 @@ const Home = () => {
             <div className="col-12 col-sm-12 col-md-6 col-lg-3 order-lg-1 order-md-2 order-2">
 
               {PostFourOne && PostFourOne.map((post) => {
-                return <div className="post1">
+                return <div className="post1" key={post._id}>
                   <Link to={`${post.cat_name}/${post.slug}?id=${post._id}`} onClick={call5}>
                     <img className="img1 vnvv" src={`./image/${post.post_img1}`} alt={post.post_img1}/>
                   </Link>
@@ -119,7 +119,7 @@ const Home = () => {
             <div className="col-12 col-sm-12 col-md-12 col-lg-6 order-lg-2 order-md-1 order-1">
 
               {Postthree && Postthree.map((post) => {
-                return <div className="post1">
+                return <div className="post1" key={post._id}>
                   <Link to={`${post.cat_name}/${post.slug}?id=${post._id}`} onClick={call5}>
                     <img className="img1" src={`./image/${post.post_img1}`} alt={post.post_img1} />
                   </Link>
@@ -140,7 +140,7 @@ const Home = () => {
             </div>
             <div className="col-12 col-sm-12 col-md-6 col-lg-3 order-lg-3 order-md-3 order-3">
               {PostFourTwo && PostFourTwo.map((post) => {
-                return <div className="post1">
+                return <div className="post1" key={post._id}>
                   <Link to={`${post.cat_name}/${post.slug}?id=${post._id}`} onClick={call5}>
                     <img className="img1 vnvv" src={`./image/${post.post_img1}`} alt={post.post_img1}/>
                   </Link>
@@ -172,7 +172,7 @@ const Home = () => {
           </div>
           <div className="row">
             {PopulerPost && PopulerPost.map((post) => {
-              return <div className="col-12 col-sm-12 col-md-6 col-lg-3 order-lg-3 order-md-3 order-3">
+              return <div className="col-12 col-sm-12 col-md-6 col-lg-3 order-lg-3 order-md-3 order-3" key={post._id}>
                 <div className="post1 ">
                   <Link to={`${post.cat_name}/${post.slug}?id=${post._id}`} onClick={call5}>
                     <img className="img1 vnvv" src={`./image/${post.post_img1}`} alt={post.post_img1}/>

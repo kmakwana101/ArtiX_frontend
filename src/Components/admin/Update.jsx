@@ -45,7 +45,7 @@ const Update = () => {
 useEffect(() => {
   const fetchPostData = async () => {
     try {
-      const response = await axios.get(`/admin/posts/update/${id}`, formData);
+      const response = await axios.get(`https://blog-web-backend-vzqz.onrender.com/admin/posts/update/${id}`, formData);
       const postData = response.data.data;
 
       // Update the state with the fetched post data
@@ -135,7 +135,7 @@ useEffect(() => {
     e.preventDefault();
 
     try {
-      const apiUrl = `/admin/posts/update/${id}`;
+      const apiUrl = `https://blog-web-backend-vzqz.onrender.com/admin/posts/update/${id}`;
       console.log('API URL:', apiUrl);
 
       const formDataToSend = new FormData();

@@ -5,14 +5,13 @@ import Header from "./Adminheader"
 
 const SingleCategory = () => {
 
-  // const [category, setCategory] = useState("");
   const [posts, setPosts] = useState([]);
   let pathname = window.location.pathname;
 
   useEffect(() => {
     const fetchCategory = async () => {
       try {
-        const apiUrl = `/api${pathname}`;
+        const apiUrl = `https://blog-web-backend-vzqz.onrender.com/api${pathname}`;
         // console.log(apiUrl, "++++++pathname");
         const response = await axios.get(apiUrl);
         // console.log(response.data.data[0].posts, "response");
@@ -31,17 +30,14 @@ const SingleCategory = () => {
   const handleDelete = async (postId) => {
     try {
       // Step 1: Delete the post
-      await axios.delete(`/api/posts/${postId}`);
+      await axios.delete(`https://blog-web-backend-vzqz.onrender.com/api/posts/${postId}`);
       // console.log(object);
       // Step 2: Fetch the updated data
-      const apiUrl = `/api${pathname}`;
+      const apiUrl = `https://blog-web-backend-vzqz.onrender.com/api${pathname}`;
       const response = await axios.get(apiUrl);
       let data = await response.data.data[0].posts;
 
-      // Step 3: Set the updated data in the state
       setPosts(data);
-      // Step 4: Refresh the page
-      // window.location.reload(true);
     } catch (error) {
       console.error('Error deleting post:', error);
     }

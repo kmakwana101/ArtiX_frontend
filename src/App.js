@@ -35,7 +35,7 @@ const App = () => {
         <Route index path='/terms' element={<Terms/>} />
         <Route index path='/:category/:slug' element={<Fullpost/>} />
         <Route index path='/:category' element={<Category/>} />
-        <Route index path='/search' element={<Search/>} />
+        <Route index path='/search/:search' element={<Search/>} />
       </Routes>
     </>
   </BrowserRouter>

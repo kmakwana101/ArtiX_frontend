@@ -10,7 +10,7 @@ const Allposts = () => {
   useEffect(() => {
     const fetchCategory = async () => {
       try {
-        const response = await axios.get("/api/posts");
+        const response = await axios.get("https://blog-web-backend-vzqz.onrender.com/api/posts");
         console.log(response);
         setPosts(response.data.data);
       } catch (error) {
@@ -24,10 +24,10 @@ const Allposts = () => {
   const handleDelete = async (postId) => {
     try {
         // Step 1: Delete the post
-        await axios.delete(`/api/posts/${postId}`);
+        await axios.delete(`https://blog-web-backend-vzqz.onrender.com/api/posts/${postId}`);
         // console.log(object);
         // Step 2: Fetch the updated data
-        const response = await axios.get("/api/posts");
+        const response = await axios.get("https://blog-web-backend-vzqz.onrender.com/api/posts");
         // let data = await response.data.data[0].posts;
         console.log(response.data.data);
   

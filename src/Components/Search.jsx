@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from './Header';
 import Footer from './Footer';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
-
 const Search = () => {
+    let location = useLocation();
     const [query, setquery] = useState('')
     function call5() {
         document.body.scrollIntoView({
@@ -15,37 +15,51 @@ const Search = () => {
     const [searchResults, setSearchResults] = useState([]);
   
     useEffect(() => {
-      // Extract the search query from the URL
-      const params = new URLSearchParams(window.location.search);
-      const searchQuery = params.get('search');
-        setquery(searchQuery)
-      // Fetch search results based on the query
-      const fetchData = async () => {
-        try {
-          const response = await axios.get(`/api/search?search=${searchQuery}`);
-          console.log(response.data.data);
-          setSearchResults(response.data.data);
-          
-        } catch (error) {
-          console.error('Error fetching search results:', error.message);
-        }
-      };
-      // Call the fetchData function
-      fetchData();
-    }, []);
-    useEffect(() => {
-     console.log(searchResults);
-    }, [])
-    
+        // Extract the 'search' query parameter from the URL
+        const searchQuery = new URLSearchParams(location.search).get('search');
+        // console.log(searchQuery);
+      
+        // Set the 'query' state with the extracted search query
+        setquery((prevSearchQuery) => {
+          // Ensure you are updating the state with the latest value
+          if (searchQuery !== prevSearchQuery) {
+            return searchQuery;
+          }
+          return prevSearchQuery;
+        });
+      
+        // Define an asynchronous function to fetch data from the backend
+        const fetchData = async () => {
+          try {
+            // Make a GET request to the backend API with the search query
+            const response = await axios.get(`https://blog-web-backend-vzqz.onrender.com/api/search?search=${searchQuery}`);
+                 call5()
+            
+            // Log the data received from the backend
+            // console.log(response.data.data);
+      
+            // Set the 'searchResults' state with the data received from the backend
+            setSearchResults(response.data.data);
+      
+          } catch (error) {
+            // Log an error message if there is an error fetching data
+            console.error('Error fetching search results:', error.message);
+          }
+        };
+      
+        // Call the fetchData function when the component mounts or when the 'searchQuery' changes
+        fetchData();
+      }, [location.search]);
+      
+
     return (
         <>
-
         <Header/>
         <div className="container">
                     <div className="row">
                         <div className="col-12">
                             <h1 className="text-center mt-5">
-                                Searching For "{query}"
+                                {query && searchResults.length>0  ? `Searching For "${query}"`: `Data Not Found` }
                             </h1>
                             <div className="decorative-line">
                                 <div className="decorative-line-center">
@@ -88,7 +102,7 @@ const Search = () => {
                     {/* {"{"}% for x in finaldata %{"}"} */}
                     {searchResults && searchResults.map((post) => {
                         return (
-                            <div className="container">
+                            <div className="container" key={post._id}>
                                 <div className="row">
                                     <div className="col-lg-12 col-md-12 m-auto col-xl-8">
                                         <div className="post1">
@@ -112,7 +126,6 @@ const Search = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-
                                                 <div className="col-lg-6 col-md-12">
                                                     <div className="context">
                                                         <div className="hhgy1 d-none d-lg-block mt-4">
@@ -128,9 +141,7 @@ const Search = () => {
                                                             </h3>
                                                         </Link>
                                                         <Link to={`/${post && post.cat_name}?id=${post && post.categori}`} onClick={call5}>
-                                                            <p className='d-flex'>
                                                             {ReactHtmlParser(post.description_1.slice(0, 60))}
-                                                            </p>
                                                         </Link>
                                                     </div>
                                                 </div>

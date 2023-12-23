@@ -12,7 +12,7 @@ const CategoryPage = () => {
         // Fetch categories from your API
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('/api/allcategory');
+                const response = await axios.get('https://blog-web-backend-vzqz.onrender.com/api/allcategory');
                 // console.log(response.data);// Replace with your actual API endpoint
                 setCategories(response.data.data);
             } catch (error) {
@@ -27,7 +27,7 @@ const CategoryPage = () => {
     useEffect(() => {
       const fetchCategory = async () => {
         try {
-          const response = await axios.get("/api/posts");
+          const response = await axios.get("https://blog-web-backend-vzqz.onrender.com/api/posts");
           console.log(response);
           setPosts(response.data.data);
         } catch (error) {

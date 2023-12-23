@@ -19,10 +19,10 @@ const Category = () => {
         setCat_name(Category);
 
         let getdata = async () => {
-            console.log(PageNo + "888888888888888");
+            // console.log(PageNo + "888888888888888");
             try {
-                let allpost = await axios.get(`/api/category?category=${Category}&id=${postId}&page=${PageNo}`);
-                let nextposts = await axios.get(`/api/category?category=${Category}&id=${postId}&page=${PageNo + 1}`);
+                let allpost = await axios.get(`https://blog-web-backend-vzqz.onrender.com/api/category?category=${Category}&id=${postId}&page=${PageNo}`);
+                let nextposts = await axios.get(`https://blog-web-backend-vzqz.onrender.com/api/category?category=${Category}&id=${postId}&page=${PageNo + 1}`);
                 setAllPostLen(nextposts.data.data.length)
                 if (nextposts.data.data.lengh <= 0) {
                     setAllPostLen(false)
@@ -124,7 +124,7 @@ const Category = () => {
                                                 <h3>{post.main_heading}</h3>
                                             </Link>
                                             <Link to={`/${post && post.cat_name}?id=${post && post.categori}`} onClick={call5}>
-                                                <p className="d-flex">{ReactHtmlParser(post.description_1.slice(0, 60))}</p>
+                                                {ReactHtmlParser(post.description_1.slice(0, 60))}
                                             </Link>
                                         </div>
                                     </div>
@@ -156,7 +156,7 @@ const Category = () => {
                                                 call5();
                                             }}
                                         >
-                                            ← Previous
+                                            Previous
                                         </span>
                                     </li>
                                     <li className="page-item" style={{ outline: "none" }}>

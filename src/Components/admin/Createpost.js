@@ -47,7 +47,7 @@ const YourFormComponent = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const categoriesUrl = '/api/categori/';
+        const categoriesUrl = 'https://blog-web-backend-vzqz.onrender.com/api/categori/';
         const response = await axios.get(categoriesUrl);
         setCategories(response.data.data);
       } catch (error) {
@@ -80,7 +80,7 @@ const YourFormComponent = () => {
 
   try {
     console.log('Form submitted');
-    const apiUrl = await `/api/posts/create?id=${formData.category}`;
+    const apiUrl = `https://blog-web-backend-vzqz.onrender.com/api/posts/create?id=${formData.category}`;
     const formDataToSend = new FormData();
     console.log('FormData before append:', formDataToSend);
 

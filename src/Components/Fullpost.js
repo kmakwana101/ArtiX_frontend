@@ -16,13 +16,13 @@ const Fullpost = () => {
         console.log('Post ID:', postId);
         const fetchData = async () => {
             try {
-                const response = await axios.post(`/api/fullpost?id=${postId}`);
+                const response = await axios.post(`https://blog-web-backend-vzqz.onrender.com/api/fullpost?id=${postId}`);
                 setpost(response.data.data)
                 console.log(post + "--------------");
                 console.log('Post Data:', response.data.data);
 
                 // poler posts
-                let allpost = await axios.get("/api/posts")
+                let allpost = await axios.get("https://blog-web-backend-vzqz.onrender.com/api/posts")
                 let data = allpost.data.data
                 const one = Math.floor(Math.random() * data.length);
                 const two = Math.floor(Math.random() * data.length);

@@ -16,7 +16,7 @@ const handlechange = (e) =>{
 
    try {
     console.log(formData);
-    let response = await axios.post('/api/login', formData)
+    let response = await axios.post('https://blog-web-backend-vzqz.onrender.com/api/login', formData)
     // console.log(response);
     if(response.status === 200){
       window.location.href = "/AdminPanel"

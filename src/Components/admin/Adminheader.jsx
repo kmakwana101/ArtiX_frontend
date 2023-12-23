@@ -32,8 +32,6 @@ const Adminheader = () => {
                                     Posts
                                 </Link>
                             </li>
-                           
-                            {/* Add more links for other admin functionalities */}
                             <li className="nav-item">
                                 <Link className="nav-link" to="/logout">
                                     Logout
@@ -43,7 +41,6 @@ const Adminheader = () => {
                     </div>
                 </div>
             </nav>
-
     </>
   )
 }
