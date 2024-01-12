@@ -21,7 +21,7 @@ const Header = () => {
   useEffect(() => {
     let getdata = async () => {
       try {
-        let allcategory = await axios.get("https://blog-web-backend-vzqz.onrender.com/api/allcategory");
+        let allcategory = await axios.get("https://beautiful-zipper-bee.cyclic.app/api/allcategory");
         setcategory(allcategory.data.data);
         // console.log(category);
       } catch (error) {
@@ -35,7 +35,9 @@ const Header = () => {
 
   }
   let searchsubmit = async (e) => {
+   if(searchkey.length > 0){
     navigate(`/search/search?search=${searchkey}`);
+   }
   }
   return (
     <>

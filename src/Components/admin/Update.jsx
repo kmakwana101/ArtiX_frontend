@@ -10,7 +10,6 @@ const Update = () => {
     if (typeof EventTarget !== 'undefined') {
       let supportsPassive = false;
       try {
-        // Test via a getter in the options object to see if the passive property is accessed
         const opts = Object.defineProperty({}, 'passive', {
           get: () => {
             supportsPassive = true;
@@ -19,7 +18,7 @@ const Update = () => {
         });
         window.addEventListener('testPassive', null, opts);
         window.removeEventListener('testPassive', null, opts);
-      } catch (e) {}
+      } catch (e) { }
       const func = EventTarget.prototype.addEventListener;
       EventTarget.prototype.addEventListener = function (type, fn) {
         this.func = func;
@@ -42,39 +41,37 @@ const Update = () => {
     post_img6: null,
   });
 
-useEffect(() => {
-  const fetchPostData = async () => {
-    try {
-      const response = await axios.get(`https://blog-web-backend-vzqz.onrender.com/admin/posts/update/${id}`, formData);
-      const postData = response.data.data;
+  useEffect(() => {
+    const fetchPostData = async () => {
+      try {
+        const response = await axios.get(`https://beautiful-zipper-bee.cyclic.app/admin/posts/update/${id}`, formData);
+        const postData = response.data.data;
 
-      // Update the state with the fetched post data
-      console.log(postData.description_1)
+        // Update the state with the fetched post data
+        console.log(postData.description_1)
 
-      setFormData({
-        main_heading: postData.main_heading || '',
-        description_1: postData.description_1 || '',
-        description_2: postData.description_2 || '',
-        description_3: postData.description_3 || '',
-        description_4: postData.description_4 || '',
-        post_img1: postData.post_img1 || '',
-        post_img2: postData.post_img2 || '',
-        post_img3: postData.post_img3 || '',
-        post_img4: postData.post_img4 || '',
-        post_img5: postData.post_img5 || '',
-        post_img6: postData.post_img6 || '',
-      });
+        setFormData({
+          main_heading: postData.main_heading || '',
+          description_1: postData.description_1 || '',
+          description_2: postData.description_2 || '',
+          description_3: postData.description_3 || '',
+          description_4: postData.description_4 || '',
+          post_img1: postData.post_img1 || '',
+          post_img2: postData.post_img2 || '',
+          post_img3: postData.post_img3 || '',
+          post_img4: postData.post_img4 || '',
+          post_img5: postData.post_img5 || '',
+          post_img6: postData.post_img6 || '',
+        });
 
-      // Log the post image URLs or paths
+        console.log('Post data fetched successfully:', postData);
+      } catch (error) {
+        console.error('Error fetching post data:', error);
+      }
+    };
 
-      console.log('Post data fetched successfully:', postData);
-    } catch (error) {
-      console.error('Error fetching post data:', error);
-    }
-  };
-
-  fetchPostData();
-}, [id]); // Include formData in the dependency array if it's being used inside the effect
+    fetchPostData();
+  }, [id]); // Include formData in the dependency array if it's being used inside the effect
 
 
 
@@ -96,32 +93,6 @@ useEffect(() => {
     }));
   };
 
-  // const handleSubmit = async (e) => {
-  //   console.log("dddddddddddddddddddddddd");
-  //   e.preventDefault();
-
-  //   try {
-  //     // const apiUrl = '/api/posts/update';
-  //     const formDataToSend = new FormData();
-  //     Object.entries(formData).forEach(([key, value]) => {
-  //       if (value instanceof File) {
-  //         formDataToSend.append(key, value);
-  //       } else {
-  //         formDataToSend.append(key, value || ''); // Handle other form fields
-  //       }
-  //     });
-  //     console.log(formDataToSend + "++++++++++++++++++++++");
-  //     // const response = await axios.post(apiUrl, formDataToSend);
-  //     // console.log(response.data);
-  //   } catch (error) {
-  //     console.error('Error creating post:', error);
-  //   }
-
- 
-  //     categori: '', // Reset categori as well
-  //   });
-  // };
-
   const handleEditorChange = (content, name) => {
     setFormData((prevData) => {
       const newData = { ...prevData };
@@ -129,9 +100,9 @@ useEffect(() => {
       return newData;
     });
   };
-   const handleSubmit = async (e) => {
-    console.log('Form submitted');
 
+  const handleSubmit = async (e) => {
+    console.log('Form submitted');
     e.preventDefault();
 
     try {
@@ -150,13 +121,8 @@ useEffect(() => {
       const response = await axios.post(apiUrl, formDataToSend);
       console.log('Response data:', response.data);
 
-      // Optionally, provide user feedback (e.g., success message or redirect)
-      // Example: alert('Post updated successfully');
-      // Example: history.push(`/posts/${id}`);
     } catch (error) {
       console.error('Error updating post:', error);
-      // Optionally, provide user feedback (e.g., error message)
-      // Example: alert('Error updating post');
     }
 
     // Reset form data
@@ -177,8 +143,7 @@ useEffect(() => {
   return (
     <>
       <Header />
-
-      <div className="container mt-5">
+      <div className="container mt-5 font">
         <div className="row shadow p-5">
           <h3 className="text-center mb-4">Add New Post</h3>
           <form onSubmit={handleSubmit}>
@@ -192,7 +157,6 @@ useEffect(() => {
                 className="form-control"
                 name="post_img1"
                 onChange={(e) => handleFileChange(e, 'post_img1')}
-                 
               />
               {formData.post_img1 && typeof formData.post_img1 === 'string' && (
                 <div>
@@ -218,9 +182,7 @@ useEffect(() => {
                     name="main_heading"
                     value={formData.main_heading}
                     onChange={(e) => handleChange(e)}
-                     
                   />
-                  
                 </div>
               </div>
             </div>
@@ -259,7 +221,7 @@ useEffect(() => {
                 className="form-control"
                 name="post_img2"
                 onChange={(e) => handleFileChange(e, 'post_img2')}
-                 
+
               />
               {formData.post_img2 && typeof formData.post_img2 === 'string' && (
                 <div>
@@ -277,22 +239,22 @@ useEffect(() => {
                 description_2
               </label>
               <Editor
-                 apiKey="rrynzhgf5jzorkx6fha3nu3f08gez7odctz6xmcmc1bjnde5"
-                 id="description_2"
-                 className="form-control"
-                 name="description_2"
-                 value={formData.description_2}  // Use 'value' instead of 'initialValue'
-                 onEditorChange={(content) =>
-                   handleEditorChange(content, 'description_2')
-                 }
-                 skin="oxygen"
-                 inlinecompose={true}
-                 autoFocus={false}
-                 menubar={true}
-                 showMenubar={true}
-                 statusbar={true}
-                 themes={['default', 'bridge']}
-                 baseuri={'https://example.com'}
+                apiKey="rrynzhgf5jzorkx6fha3nu3f08gez7odctz6xmcmc1bjnde5"
+                id="description_2"
+                className="form-control"
+                name="description_2"
+                value={formData.description_2}  // Use 'value' instead of 'initialValue'
+                onEditorChange={(content) =>
+                  handleEditorChange(content, 'description_2')
+                }
+                skin="oxygen"
+                inlinecompose={true}
+                autoFocus={false}
+                menubar={true}
+                showMenubar={true}
+                statusbar={true}
+                themes={['default', 'bridge']}
+                baseuri={'https://example.com'}
               />
             </div>
 
@@ -306,7 +268,7 @@ useEffect(() => {
                 className="form-control"
                 name="post_img3"
                 onChange={(e) => handleFileChange(e, 'post_img3')}
-                 
+
               />
               {formData.post_img3 && typeof formData.post_img3 === 'string' && (
                 <div>
@@ -325,22 +287,22 @@ useEffect(() => {
                 description_3
               </label>
               <Editor
-                 apiKey="rrynzhgf5jzorkx6fha3nu3f08gez7odctz6xmcmc1bjnde5"
-                 id="description_3"
-                 className="form-control"
-                 name="description_3"
-                 value={formData.description_3}  // Use 'value' instead of 'initialValue'
-                 onEditorChange={(content) =>
-                   handleEditorChange(content, 'description_3')
-                 }
-                 skin="oxygen"
-                 inlinecompose={true}
-                 autoFocus={false}
-                 menubar={true}
-                 showMenubar={true}
-                 statusbar={true}
-                 themes={['default', 'bridge']}
-                 baseuri={'https://example.com'}
+                apiKey="rrynzhgf5jzorkx6fha3nu3f08gez7odctz6xmcmc1bjnde5"
+                id="description_3"
+                className="form-control"
+                name="description_3"
+                value={formData.description_3}  // Use 'value' instead of 'initialValue'
+                onEditorChange={(content) =>
+                  handleEditorChange(content, 'description_3')
+                }
+                skin="oxygen"
+                inlinecompose={true}
+                autoFocus={false}
+                menubar={true}
+                showMenubar={true}
+                statusbar={true}
+                themes={['default', 'bridge']}
+                baseuri={'https://example.com'}
               />
             </div>
             <div className="form-outline mb-4">
@@ -353,7 +315,7 @@ useEffect(() => {
                 className="form-control"
                 name="post_img4"
                 onChange={(e) => handleFileChange(e, 'post_img4')}
-                 
+
               />
               {formData.post_img4 && typeof formData.post_img4 === 'string' && (
                 <div>
@@ -376,7 +338,6 @@ useEffect(() => {
                 className="form-control"
                 name="post_img5"
                 onChange={(e) => handleFileChange(e, 'post_img5')}
-                 
               />
               {formData.post_img5 && typeof formData.post_img5 === 'string' && (
                 <div>
@@ -394,22 +355,22 @@ useEffect(() => {
                 description_4
               </label>
               <Editor
-                 apiKey="rrynzhgf5jzorkx6fha3nu3f08gez7odctz6xmcmc1bjnde5"
-                 id="description_4"
-                 className="form-control"
-                 name="description_4"
-                 value={formData.description_4}  // Use 'value' instead of 'initialValue'
-                 onEditorChange={(content) =>
-                   handleEditorChange(content, 'description_4')
-                 }
-                 skin="oxygen"
-                 inlinecompose={true}
-                 autoFocus={false}
-                 menubar={true}
-                 showMenubar={true}
-                 statusbar={true}
-                 themes={['default', 'bridge']}
-                 baseuri={'https://example.com'}
+                apiKey="rrynzhgf5jzorkx6fha3nu3f08gez7odctz6xmcmc1bjnde5"
+                id="description_4"
+                className="form-control"
+                name="description_4"
+                value={formData.description_4}  // Use 'value' instead of 'initialValue'
+                onEditorChange={(content) =>
+                  handleEditorChange(content, 'description_4')
+                }
+                skin="oxygen"
+                inlinecompose={true}
+                autoFocus={false}
+                menubar={true}
+                showMenubar={true}
+                statusbar={true}
+                themes={['default', 'bridge']}
+                baseuri={'https://example.com'}
               />
             </div>
             <div className="form-outline mb-4">
@@ -422,7 +383,7 @@ useEffect(() => {
                 className="form-control"
                 name="post_img6"
                 onChange={(e) => handleFileChange(e, 'post_img6')}
-                 
+
               />
               {formData.post_img6 && typeof formData.post_img6 === 'string' && (
                 <div>
@@ -435,7 +396,6 @@ useEffect(() => {
                 </div>
               )}
             </div>
-
             {/* ... (other form fields) ... */}
             <button
               type="submit"

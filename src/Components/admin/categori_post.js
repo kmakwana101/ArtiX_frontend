@@ -11,7 +11,7 @@ const SingleCategory = () => {
   useEffect(() => {
     const fetchCategory = async () => {
       try {
-        const apiUrl = `https://blog-web-backend-vzqz.onrender.com/api${pathname}`;
+        const apiUrl = `https://beautiful-zipper-bee.cyclic.app/api${pathname}`;
         // console.log(apiUrl, "++++++pathname");
         const response = await axios.get(apiUrl);
         // console.log(response.data.data[0].posts, "response");
@@ -30,10 +30,10 @@ const SingleCategory = () => {
   const handleDelete = async (postId) => {
     try {
       // Step 1: Delete the post
-      await axios.delete(`https://blog-web-backend-vzqz.onrender.com/api/posts/${postId}`);
+      await axios.delete(`https://beautiful-zipper-bee.cyclic.app/api/posts/${postId}`);
       // console.log(object);
       // Step 2: Fetch the updated data
-      const apiUrl = `https://blog-web-backend-vzqz.onrender.com/api${pathname}`;
+      const apiUrl = `https://beautiful-zipper-bee.cyclic.app/api${pathname}`;
       const response = await axios.get(apiUrl);
       let data = await response.data.data[0].posts;
 
@@ -42,17 +42,10 @@ const SingleCategory = () => {
       console.error('Error deleting post:', error);
     }
   };
-
-  // let UpdatePost = async (Id) => {
-  //   let post = await axios.get(`/admin/posts/update?id=${Id}`);
-  //   //  history.push(`/second/${Id}`);
-  //   console.log(post);
-  // }
-
   return (
     <>
       <Header/>
-      <div className="container mt-4">
+      <div className="container mt-4 font">
         <h3>All Posts </h3>
         <p>Total Posts: {posts.length}</p>
 
@@ -63,7 +56,6 @@ const SingleCategory = () => {
                 <th>No.</th>
                 <th>Image</th>
                 <th>Title</th>
-                {/* <th>Description</th> */}
                 <th>Created at</th>
                 <th>Action</th>
               </tr>
@@ -73,7 +65,6 @@ const SingleCategory = () => {
                 <tr key={post._id} className={post._id}>
                     <td>{i+1}</td>
                   <td>
-                    {/* Assuming there's a URL property in your post_img */}
                     {post.post_img1 && (
                       <img
                         src={`../../image/${post.post_img1}`}
@@ -83,7 +74,6 @@ const SingleCategory = () => {
                     )}
                   </td>
                   <td>{post.main_heading}</td>
-                  {/* <td>{post.description}</td> */}
                   <td>{new Date(post.createdAt).toLocaleString()}</td>
                   <td>
                     <button
@@ -109,7 +99,6 @@ const SingleCategory = () => {
         </div>
       </div>
     </>
-
   );
 };
 

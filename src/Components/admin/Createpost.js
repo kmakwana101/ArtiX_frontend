@@ -33,7 +33,7 @@ const YourFormComponent = () => {
         });
         window.addEventListener('testPassive', null, opts);
         window.removeEventListener('testPassive', null, opts);
-      } catch (e) {}
+      } catch (e) { }
       const func = EventTarget.prototype.addEventListener;
       EventTarget.prototype.addEventListener = function (type, fn) {
         this.func = func;
@@ -47,7 +47,7 @@ const YourFormComponent = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const categoriesUrl = 'https://blog-web-backend-vzqz.onrender.com/api/categori/';
+        const categoriesUrl = 'https://beautiful-zipper-bee.cyclic.app/api/allcategory';
         const response = await axios.get(categoriesUrl);
         setCategories(response.data.data);
       } catch (error) {
@@ -78,54 +78,54 @@ const YourFormComponent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-  try {
-    console.log('Form submitted');
-    const apiUrl = `https://blog-web-backend-vzqz.onrender.com/api/posts/create?id=${formData.category}`;
-    const formDataToSend = new FormData();
-    console.log('FormData before append:', formDataToSend);
+    try {
+      console.log('Form submitted');
+      const apiUrl = `https://beautiful-zipper-bee.cyclic.app/api/posts/create?id=${formData.category}`;
+      const formDataToSend = new FormData();
+      console.log('FormData before append:', formDataToSend);
 
-    // Append files with correct keys
-    formDataToSend.append('post_img1', formData.post_img1);
-    formDataToSend.append('post_img2', formData.post_img2);
-    formDataToSend.append('post_img3', formData.post_img3);
-    formDataToSend.append('post_img4', formData.post_img4);
-    formDataToSend.append('post_img5', formData.post_img5);
-    formDataToSend.append('post_img6', formData.post_img6);
+      // Append files with correct keys
+      formDataToSend.append('post_img1', formData.post_img1);
+      formDataToSend.append('post_img2', formData.post_img2);
+      formDataToSend.append('post_img3', formData.post_img3);
+      formDataToSend.append('post_img4', formData.post_img4);
+      formDataToSend.append('post_img5', formData.post_img5);
+      formDataToSend.append('post_img6', formData.post_img6);
 
-    // Append other form fields
-    Object.entries(formData).forEach(([key, value]) => {
-      if (!(value instanceof File) && key !== 'category') {
-        formDataToSend.append(key, value || '');
-      }
-    });
+      // Append other form fields
+      Object.entries(formData).forEach(([key, value]) => {
+        if (!(value instanceof File) && key !== 'category') {
+          formDataToSend.append(key, value || '');
+        }
+      });
 
-    console.log('FormData after append:', formDataToSend);
+      console.log('FormData after append:', formDataToSend);
 
-    const response = await axios.post(apiUrl, formDataToSend);
-    console.log('Response data:', response.data);
+      const response = await axios.post(apiUrl, formDataToSend);
+      console.log('Response data:', response.data);
 
-    // Reset form data
-    setFormData({
-      main_heading: '',
-      description_1: '',
-      description_2: '',
-      description_3: '',
-      description_4: '',
-      post_img1: null,
-      post_img2: null,
-      post_img3: null,
-      post_img4: null,
-      post_img5: null,
-      post_img6: null,
-      category: '', // Reset categori as well
-    });
+      // Reset form data
+      setFormData({
+        main_heading: '',
+        description_1: '',
+        description_2: '',
+        description_3: '',
+        description_4: '',
+        post_img1: null,
+        post_img2: null,
+        post_img3: null,
+        post_img4: null,
+        post_img5: null,
+        post_img6: null,
+        category: '', // Reset categori as well
+      });
 
-    console.log('Form reset successful');
-  } catch (error) {
-    console.error('Error creating post:', error);
-  }
+      console.log('Form reset successful');
+    } catch (error) {
+      console.error('Error creating post:', error);
+    }
   };
-  
+
 
   const handleEditorChange = (content, name) => {
     setFormData((prevData) => ({
@@ -137,8 +137,8 @@ const YourFormComponent = () => {
     <>
 
       <Header />
-     
-      <div className="container mt-5">
+
+      <div className="container mt-5 font">
         <div className="row shadow p-5">
           <h3 className="text-center mb-4">Add New Post</h3>
           <form onSubmit={handleSubmit}>
@@ -178,28 +178,28 @@ const YourFormComponent = () => {
                 Category
               </label>
               <select
-  id="category"
-  name="category"
-  onChange={(e) => handleChange(e)}
-  className="form-select"
-  value={formData.category}
-  required
->
-  <option disabled value="">
-    Select a category
-  </option>
-  {categories.map((category) => (
-    <option key={category._id} value={category._id}>
-      {category.cat_name}
-    </option>
-  ))}
-</select>
+                id="category"
+                name="category"
+                onChange={(e) => handleChange(e)}
+                className="form-select"
+                value={formData.category}
+                required
+              >
+                <option disabled value="">
+                  Select a category
+                </option>
+                {categories.map((category) => (
+                  <option key={category._id} value={category._id}>
+                    {category.cat_name}
+                  </option>
+                ))}
+              </select>
             </div>
-           <div className="mb-4">
-           <label className="form-label" htmlFor="description_1">
-              description_1
-            </label>
-            <Editor
+            <div className="mb-4">
+              <label className="form-label" htmlFor="description_1">
+                description_1
+              </label>
+              <Editor
                 apiKey="rrynzhgf5jzorkx6fha3nu3f08gez7odctz6xmcmc1bjnde5"
                 id="description_1"
                 className="form-control"
@@ -217,7 +217,7 @@ const YourFormComponent = () => {
                 themes={['default', 'bridge']}
                 baseuri={'https://example.com'}
               />
-           </div>
+            </div>
 
             <div className="form-outline mb-4 ">
               <label className="form-label" htmlFor="post_img2">
@@ -232,31 +232,31 @@ const YourFormComponent = () => {
                 required
               />
             </div>
-           <div className="mb-4">
-            <label className="form-label" htmlFor="description_2">
-              description_2
-            </label>
-            <Editor
-              apiKey="rrynzhgf5jzorkx6fha3nu3f08gez7odctz6xmcmc1bjnde5"
-              id="description_2"
-              className="form-control"
-              name="description_2"
-              value={formData.description_2}
-              onEditorChange={(content) =>
-                handleEditorChange(content, 'description_2')
-              }
-              required
-              content={formData.description_2}
-              skin="oxygen"
-              inlinecompose={true}
-              autoFocus={false}
-              menubar={true}
-              showMenubar={true}
-              statusbar={true}
-              themes={['default', 'bridge']}
-              baseuri={'https://example.com'}
-            />
-           </div>
+            <div className="mb-4">
+              <label className="form-label" htmlFor="description_2">
+                description_2
+              </label>
+              <Editor
+                apiKey="rrynzhgf5jzorkx6fha3nu3f08gez7odctz6xmcmc1bjnde5"
+                id="description_2"
+                className="form-control"
+                name="description_2"
+                value={formData.description_2}
+                onEditorChange={(content) =>
+                  handleEditorChange(content, 'description_2')
+                }
+                required
+                content={formData.description_2}
+                skin="oxygen"
+                inlinecompose={true}
+                autoFocus={false}
+                menubar={true}
+                showMenubar={true}
+                statusbar={true}
+                themes={['default', 'bridge']}
+                baseuri={'https://example.com'}
+              />
+            </div>
 
             <div className="form-outline mb-4">
               <label className="form-label" htmlFor="post_img3">
@@ -271,32 +271,32 @@ const YourFormComponent = () => {
                 required
               />
             </div>
-            
+
             <div className="mb-4">
-            <label className="form-label" htmlFor="description_3">
-              description_3
-            </label>
-            <Editor
-              apiKey="rrynzhgf5jzorkx6fha3nu3f08gez7odctz6xmcmc1bjnde5"
-              id="description_3"
-              className="form-control"
-              name="description_3"
-              value={formData.description_3}
-              onEditorChange={(content) =>
-                handleEditorChange(content, 'description_3')
-              }
-              required
-              content={formData.description_3}
-             
-              skin="oxygen"
-              inlinecompose={true}
-              autoFocus={false}
-              menubar={true}
-              showMenubar={true}
-              statusbar={true}
-              themes={['default', 'bridge']}
-              baseuri={'https://example.com'}
-            />
+              <label className="form-label" htmlFor="description_3">
+                description_3
+              </label>
+              <Editor
+                apiKey="rrynzhgf5jzorkx6fha3nu3f08gez7odctz6xmcmc1bjnde5"
+                id="description_3"
+                className="form-control"
+                name="description_3"
+                value={formData.description_3}
+                onEditorChange={(content) =>
+                  handleEditorChange(content, 'description_3')
+                }
+                required
+                content={formData.description_3}
+
+                skin="oxygen"
+                inlinecompose={true}
+                autoFocus={false}
+                menubar={true}
+                showMenubar={true}
+                statusbar={true}
+                themes={['default', 'bridge']}
+                baseuri={'https://example.com'}
+              />
             </div>
             <div className="form-outline mb-4">
               <label className="form-label" htmlFor="post_img4">
@@ -324,32 +324,32 @@ const YourFormComponent = () => {
                 required
               />
             </div>
-           <div className="mb-4">
-           <label className="form-label" htmlFor="description_4">
-              description_4
-            </label>
-            <Editor
-              apiKey="rrynzhgf5jzorkx6fha3nu3f08gez7odctz6xmcmc1bjnde5"
-              id="description_4"
-              className="form-control"
-              name="description_4"
-              value={formData.description_4}
-              onEditorChange={(content) =>
-                handleEditorChange(content, 'description_4')
-              }
-              required
-              content={formData.description_4}
-              
-              skin="oxygen"
-              inlinecompose={true}
-              autoFocus={false}
-              menubar={true}
-              showMenubar={true}
-              statusbar={true}
-              themes={['default', 'bridge']}
-              baseuri={'https://example.com'}
-            />
-           </div>
+            <div className="mb-4">
+              <label className="form-label" htmlFor="description_4">
+                description_4
+              </label>
+              <Editor
+                apiKey="rrynzhgf5jzorkx6fha3nu3f08gez7odctz6xmcmc1bjnde5"
+                id="description_4"
+                className="form-control"
+                name="description_4"
+                value={formData.description_4}
+                onEditorChange={(content) =>
+                  handleEditorChange(content, 'description_4')
+                }
+                required
+                content={formData.description_4}
+
+                skin="oxygen"
+                inlinecompose={true}
+                autoFocus={false}
+                menubar={true}
+                showMenubar={true}
+                statusbar={true}
+                themes={['default', 'bridge']}
+                baseuri={'https://example.com'}
+              />
+            </div>
             <div className="form-outline mb-4">
               <label className="form-label" htmlFor="post_img6">
                 Post Image 6

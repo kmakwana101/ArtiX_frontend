@@ -1,20 +1,26 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import Header from './Header';
 import Footer from './Footer';
+import UserContext from '../context/UserContext';
 
 const Contact = () => {
+  const {user,setUser} = useContext(UserContext)
+ 
+  console.log(user);
 
   useEffect(() => {
     AOS.init();
   }, [])
 
   const removetext= ()=>{
+    setUser({username: 'khushal Makwana'})
     document.getElementById("name").value=""
     document.getElementById("email").value=""
     document.getElementById("textarea").value=""
     document.getElementById("subject").value=""
+
   }
 
   return (

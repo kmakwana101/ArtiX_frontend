@@ -16,10 +16,14 @@ const Home = () => {
   const [Postthree, setPostthree] = useState([])
   const [PostFourTwo, setPostFourTwo] = useState([])
   const [PopulerPost, setPopulerPost] = useState([])
+
+  const redirectToAdmin = () => {
+    window.location.href = '/admin';
+  }
   useEffect(() => {
     let getdata = async () => {
       try {
-        let allpost = await axios.get("https://blog-web-backend-vzqz.onrender.com/api/posts")
+        let allpost = await axios.get("https://beautiful-zipper-bee.cyclic.app/api/posts")
         let data = allpost.data.data
         // console.log(data + "--------------");
         let postfourone = [], postthree = [], postfourtwo = [], populerpost = []
@@ -55,7 +59,7 @@ const Home = () => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h1 className="text-center mt-5">Latest Blogs</h1>
+              <h1 className="text-center mt-5" onClick={redirectToAdmin}>Latest Blogs</h1>
               <div className="decorative-line">
                 <div className="decorative-line-center">
                   <svg
@@ -98,10 +102,10 @@ const Home = () => {
               {PostFourOne && PostFourOne.map((post) => {
                 return <div className="post1" key={post._id}>
                   <Link to={`${post.cat_name}/${post.slug}?id=${post._id}`} onClick={call5}>
-                    <img className="img1 vnvv" src={`./image/${post.post_img1}`} alt={post.post_img1}/>
+                    <img className="img1 vnvv" src={`./image/${post.post_img1}`} alt={post.post_img1} />
                   </Link>
                   <div className="hhgy">
-                  <Link to={`/category?category=${post.cat_name}&id=${post.categori}`} onClick={call5}>
+                    <Link to={`/category?category=${post.cat_name}&id=${post.categori}`} onClick={call5}>
                       <button className="shape">
                         {post.cat_name}
                       </button>
@@ -124,7 +128,7 @@ const Home = () => {
                     <img className="img1" src={`./image/${post.post_img1}`} alt={post.post_img1} />
                   </Link>
                   <div className="hhgy">
-                  <Link to={`/category?category=${post.cat_name}&id=${post.categori}`} onClick={call5}>
+                    <Link to={`/category?category=${post.cat_name}&id=${post.categori}`} onClick={call5}>
                       <button className="shape">
                         {post.cat_name}
                       </button>
@@ -142,10 +146,10 @@ const Home = () => {
               {PostFourTwo && PostFourTwo.map((post) => {
                 return <div className="post1" key={post._id}>
                   <Link to={`${post.cat_name}/${post.slug}?id=${post._id}`} onClick={call5}>
-                    <img className="img1 vnvv" src={`./image/${post.post_img1}`} alt={post.post_img1}/>
+                    <img className="img1 vnvv" src={`./image/${post.post_img1}`} alt={post.post_img1} />
                   </Link>
                   <div className="hhgy">
-                  <Link to={`/category?category=${post.cat_name}&id=${post.categori}`} onClick={call5}>
+                    <Link to={`/category?category=${post.cat_name}&id=${post.categori}`} onClick={call5}>
                       <button className="shape">
                         {post.cat_name}
                       </button>
@@ -153,7 +157,7 @@ const Home = () => {
                   </div>
                   <Link to={`${post.cat_name}/${post.slug}?id=${post._id}`} onClick={call5}>
                     <h4>
-                    {post.main_heading.slice(0, 70)}...
+                      {post.main_heading.slice(0, 70)}...
                     </h4>
                   </Link>
                 </div>
@@ -175,17 +179,17 @@ const Home = () => {
               return <div className="col-12 col-sm-12 col-md-6 col-lg-3 order-lg-3 order-md-3 order-3" key={post._id}>
                 <div className="post1 ">
                   <Link to={`${post.cat_name}/${post.slug}?id=${post._id}`} onClick={call5}>
-                    <img className="img1 vnvv" src={`./image/${post.post_img1}`} alt={post.post_img1}/>
+                    <img className="img1 vnvv" src={`./image/${post.post_img1}`} alt={post.post_img1} />
                   </Link>
                   <div className="hhgy">
-                  <Link to={`/category?category=${post.cat_name}&id=${post.categori}`} onClick={call5}>
+                    <Link to={`/category?category=${post.cat_name}&id=${post.categori}`} onClick={call5}>
                       <button className="shape">
                         {post.cat_name}
                       </button>
                     </Link>
                   </div>
                   <Link to={`${post.cat_name}/${post.slug}?id=${post._id}`} onClick={call5}>
-                    <h4>  
+                    <h4>
                       {post.main_heading.slice(0, 50)}...
                     </h4>
                   </Link>
@@ -213,8 +217,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-
       <Footer />
     </>
   );

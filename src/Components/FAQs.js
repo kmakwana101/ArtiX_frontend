@@ -1,17 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import UserContext from '../context/UserContext';
 
 const FAQs = () => {
+  const { user } = useContext(UserContext);
+
+  console.log(user);
+
   useEffect(() => {
     AOS.init();
-  }, [])
+  }, []);
   return (
     <>
       <Header />
-      <div className="container mt-4 mb-5" data-aos="fade-up"
+      <div className="container mt-4 mb-5 font" data-aos="fade-up"
         data-aos-duration={1000}>
         <div className="row">
           <div className="text-center">

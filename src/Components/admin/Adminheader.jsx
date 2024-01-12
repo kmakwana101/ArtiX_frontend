@@ -6,7 +6,7 @@ const Adminheader = () => {
 
   return (
     <>
-     <nav className="navbar navbar-expand-lg bg-body-tertiary px-5">
+     <nav className="navbar navbar-expand-lg bg-body-tertiary px-5 font">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/admin/dashboard">
                         Admin Panel

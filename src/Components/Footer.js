@@ -9,7 +9,7 @@ const Footer = () => {
   useEffect(() => {
     let getdata = async () => {
       try {
-        let allcategory = await axios.get("https://blog-web-backend-vzqz.onrender.com/api/allcategory");
+        let allcategory = await axios.get("https://beautiful-zipper-bee.cyclic.app/api/allcategory");
         setcategory(allcategory.data.data);
         // console.log(category);
       } catch (error) {
@@ -33,12 +33,12 @@ const Footer = () => {
       gmail : Gmail
     }
     setGmail('')
-    await axios.post("https://blog-web-backend-vzqz.onrender.com/api/gmail" ,data)
+    await axios.post("https://beautiful-zipper-bee.cyclic.app/api/gmail" ,data)
     console.log(Gmail + "Sent Email");
   }
   return (
     <>
-    <footer className="py70 ert">
+    <footer className="py70 ert font">
   <div className="container">
     <div className="row">
       <div className="col-12 col-sm-6 col-md-6 col-lg-4 mb-4">

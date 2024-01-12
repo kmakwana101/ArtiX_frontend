@@ -21,8 +21,8 @@ const Category = () => {
         let getdata = async () => {
             // console.log(PageNo + "888888888888888");
             try {
-                let allpost = await axios.get(`https://blog-web-backend-vzqz.onrender.com/api/category?category=${Category}&id=${postId}&page=${PageNo}`);
-                let nextposts = await axios.get(`https://blog-web-backend-vzqz.onrender.com/api/category?category=${Category}&id=${postId}&page=${PageNo + 1}`);
+                let allpost = await axios.get(`https://beautiful-zipper-bee.cyclic.app/api/category?category=${Category}&id=${postId}&page=${PageNo}`);
+                let nextposts = await axios.get(`https://beautiful-zipper-bee.cyclic.app/api/category?category=${Category}&id=${postId}&page=${PageNo + 1}`);
                 setAllPostLen(nextposts.data.data.length)
                 if (nextposts.data.data.lengh <= 0) {
                     setAllPostLen(false)
@@ -47,7 +47,7 @@ const Category = () => {
     return (
         <>
             <Header />
-            <div className="container">
+            <div className="container font">
                 <div className="row">
                     <div className="col-12">
                         <h1 className="text-center mt-5">{Cat_name}</h1>

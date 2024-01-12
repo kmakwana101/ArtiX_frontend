@@ -16,13 +16,13 @@ const Fullpost = () => {
         console.log('Post ID:', postId);
         const fetchData = async () => {
             try {
-                const response = await axios.post(`https://blog-web-backend-vzqz.onrender.com/api/fullpost?id=${postId}`);
+                const response = await axios.post(`https://beautiful-zipper-bee.cyclic.app/api/fullpost?id=${postId}`);
                 setpost(response.data.data)
                 console.log(post + "--------------");
                 console.log('Post Data:', response.data.data);
 
                 // poler posts
-                let allpost = await axios.get("https://blog-web-backend-vzqz.onrender.com/api/posts")
+                let allpost = await axios.get("https://beautiful-zipper-bee.cyclic.app/api/posts")
                 let data = allpost.data.data
                 const one = Math.floor(Math.random() * data.length);
                 const two = Math.floor(Math.random() * data.length);
@@ -36,7 +36,6 @@ const Fullpost = () => {
                 posts.push(data[four])
                 setPopulerPost(posts)
                 // populer post end
-
                 // recent posts
                 let recentpost = []
                 for (let i = data.length - 1; i >= data.length - 4; i--) {
@@ -47,7 +46,6 @@ const Fullpost = () => {
                 console.error('Error fetching post data:', error);
             }
         };
-
         fetchData();
 
     }, [postId]);
@@ -137,7 +135,6 @@ const Fullpost = () => {
                             )}
                             {post && (
                                 <p className='mt-4'>
-                                    {/* Use ReactHtmlParser to render HTML content safely */}
                                     {ReactHtmlParser(post.description_2)}
                                 </p>
                             )}
@@ -146,7 +143,6 @@ const Fullpost = () => {
                             )}
                             {post && (
                                 <p className='mt-4'>
-                                    {/* Use ReactHtmlParser to render HTML content safely */}
                                     {ReactHtmlParser(post.description_3)}
                                 </p>
                             )}
@@ -163,7 +159,6 @@ const Fullpost = () => {
 
                             {post && (
                                 <p className='mt-4'>
-                                    {/* Use ReactHtmlParser to render HTML content safely */}
                                     {ReactHtmlParser(post.description_4)}
                                 </p>
                             )}
@@ -216,7 +211,7 @@ const Fullpost = () => {
                     </div>
                 </div>
             </section>
-            <section className="pt-5 p-sm-5 mt-5" style={{ backgroundColor: "#f7f7f7" }}>
+            <section className="pt-5 p-sm-5 mt-5 font"  style={{ backgroundColor: "#f7f7f7" }}>
                 <div className="container">
                     <div className="row">
                         <div className="text-center">
@@ -232,7 +227,7 @@ const Fullpost = () => {
                                         <img className="img1 vnvv" src={`/image/${post.post_img1}`} alt={post.post_img1} />
                                     </Link>
                                     <div className="hhgy">
-                                    <Link to={`/category?category=${ post && post.cat_name}&id=${post && post.categori}`} onClick={call5}>
+                                        <Link to={`/category?category=${post && post.cat_name}&id=${post && post.categori}`} onClick={call5}>
                                             <button className="shape">
                                                 {post.cat_name}
                                             </button>

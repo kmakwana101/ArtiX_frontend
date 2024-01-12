@@ -9,11 +9,9 @@ const CategoryPage = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        // Fetch categories from your API
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('https://blog-web-backend-vzqz.onrender.com/api/allcategory');
-                // console.log(response.data);// Replace with your actual API endpoint
+                const response = await axios.get('https://beautiful-zipper-bee.cyclic.app/api/allcategory');
                 setCategories(response.data.data);
             } catch (error) {
                 console.error('Error fetching categories:', error);
@@ -25,33 +23,27 @@ const CategoryPage = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-      const fetchCategory = async () => {
-        try {
-          const response = await axios.get("https://blog-web-backend-vzqz.onrender.com/api/posts");
-          console.log(response);
-          setPosts(response.data.data);
-        } catch (error) {
-          console.error('Error fetching category:', error);
-        }
-      };
-  
-      fetchCategory();
-    }, []);
+        const fetchCategory = async () => {
+            try {
+                const response = await axios.get("https://beautiful-zipper-bee.cyclic.app/api/posts");
+                console.log(response);
+                setPosts(response.data.data);
+            } catch (error) {
+                console.error('Error fetching category:', error);
+            }
+        };
 
+        fetchCategory();
+    }, []);
 
     return (
         <>
-            <Header/>
-            <div className='container'>
+            <Header />
+            <div className='container font'>
 
                 <div className="container mt-4">
                     <h2 className='mb-3'>All Categories</h2>
-                    <Link to="/admin/posts" style={{textDecoration:"none"}}><p style={{color:"black"}}>Total Posts: {posts.length} </p></Link>
-                    {/* <Link to="/AdminPanel"><p>Total Categories: {categories.length}</p></Link> */}
-                    
-                    {/*  */}
-                    {/* <Link to="/admin/posts/create">Manage Posts</Link> */}
-                    
+                    <Link to="/admin/posts" style={{ textDecoration: "none" }}><p style={{ color: "black" }}>Total Posts: {posts.length} </p></Link>
                 </div>
 
                 <table className='mt-4 admintable'>
@@ -67,20 +59,16 @@ const CategoryPage = () => {
                             <tr key={i + 1}>
                                 <td>{i + 1}</td>
 
-                                <td><Link to={`/AdminPanel/${category.cat_name}`} style={{textDecoration:"none",color : "black"}}>{category.cat_name}</Link></td>
+                                <td><Link to={`/AdminPanel/${category.cat_name}`} style={{ textDecoration: "none", color: "black" }}>{category.cat_name}</Link></td>
                                 <td className='ms-auto'>
-                                    {/* Add action buttons (e.g., Edit, Delete) */}
-                                    <Link to={`/AdminPanel/${category.cat_name}/`} style={{textDecoration:"none",color : "black"}}><button>Edit</button></Link>
-                                    {/* <button><Link to={`/AdminPanel/${category.cat_name}/`}>Delete</Link></button> */}
+                                    <Link to={`/AdminPanel/${category.cat_name}/`} style={{ textDecoration: "none", color: "black" }}><button>Edit</button></Link>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
-                {/* <button>Add Category</button> */}
             </div>
         </>
-
     );
 };
 
