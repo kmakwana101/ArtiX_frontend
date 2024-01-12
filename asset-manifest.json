@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.dbf99ba6.css",
-    "main.js": "/react-gh-pages/static/js/main.19bfe7f1.js",
-    "static/js/787.9e9f4ffd.chunk.js": "/react-gh-pages/static/js/787.9e9f4ffd.chunk.js",
-    "index.html": "/react-gh-pages/index.html",
-    "main.dbf99ba6.css.map": "/react-gh-pages/static/css/main.dbf99ba6.css.map",
-    "main.19bfe7f1.js.map": "/react-gh-pages/static/js/main.19bfe7f1.js.map",
-    "787.9e9f4ffd.chunk.js.map": "/react-gh-pages/static/js/787.9e9f4ffd.chunk.js.map"
+    "main.css": "/ArtiX_frontend.git/static/css/main.dbf99ba6.css",
+    "main.js": "/ArtiX_frontend.git/static/js/main.1cb83c82.js",
+    "static/js/787.9e9f4ffd.chunk.js": "/ArtiX_frontend.git/static/js/787.9e9f4ffd.chunk.js",
+    "index.html": "/ArtiX_frontend.git/index.html",
+    "main.dbf99ba6.css.map": "/ArtiX_frontend.git/static/css/main.dbf99ba6.css.map",
+    "main.1cb83c82.js.map": "/ArtiX_frontend.git/static/js/main.1cb83c82.js.map",
+    "787.9e9f4ffd.chunk.js.map": "/ArtiX_frontend.git/static/js/787.9e9f4ffd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dbf99ba6.css",
-    "static/js/main.19bfe7f1.js"
+    "static/js/main.1cb83c82.js"
   ]
 }
