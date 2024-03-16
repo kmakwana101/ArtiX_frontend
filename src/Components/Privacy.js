@@ -10,7 +10,7 @@ const Privacy = () => {
   }, []);
   return (
     <>
-      <Header faq="FAQs" terms="Term & Conditions" privacy="Privacy & Policy" />
+      <Header />
       <section data-aos="fade-up"
         data-aos-duration={1000}>
         <div className="container py-5" style={{ overflow: "hidden" }}>

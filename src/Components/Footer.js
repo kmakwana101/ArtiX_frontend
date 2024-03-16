@@ -9,7 +9,7 @@ const Footer = () => {
   useEffect(() => {
     let getdata = async () => {
       try {
-        let allcategory = await axios.get("https://beautiful-zipper-bee.cyclic.app/api/allcategory");
+        let allcategory = await axios.get("https://odd-tan-bass-robe.cyclic.app/api/allcategory");
         setcategory(allcategory.data.data);
         // console.log(category);
       } catch (error) {
@@ -33,7 +33,7 @@ const Footer = () => {
       gmail : Gmail
     }
     setGmail('')
-    await axios.post("https://beautiful-zipper-bee.cyclic.app/api/gmail" ,data)
+    await axios.post("https://odd-tan-bass-robe.cyclic.app//api/gmail" ,data)
     console.log(Gmail + "Sent Email");
   }
   return (
@@ -49,11 +49,11 @@ const Footer = () => {
           </pre>
         </div>
         <p>
-          268 St, South New York/NY 98944,
-          <br /> United States.
+        Address :  Vishal Nagar Society
+          <br />Hirabaugh,  Surat.
         </p>
-        <p className="mt-8">+222-1800-2628</p>
-        <p className="mt-8">abcd@gmail.com</p>
+        <p className="mt-8">Phone : +91 6355318232</p>
+        <p className="mt-8">Gmail :  kmakwana1255@gmail.com</p>
         <div className="icon3 mt-24">
           <Link onClick={call5} to="https://twitter.com/">
             <i className="fa-brands fa-twitter" />

@@ -796,3 +796,70 @@ svg:not(:root) {
   padding: 10px;
   background: #eee;
 }
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+ /* PRELOADER */
+ #loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  z-index: 99999;
+  }
+  .preloaderBg {
+    position: fixed;
+    z-index: 10; 
+    top: 0;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.preloader {
+    margin: auto;
+    background: url(https://habrastorage.org/getpro/habr/comment_images/8cf/deb/d58/8cfdebd58675bc96050d98524f8d051b.png) no-repeat center;
+    background-size: 150px;
+    width: 300px;
+    height: 300px;
+}
+
+
+.preloader2 {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #f00;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  animation: spin 1s ease-in-out infinite ;
+  position: relative;
+  margin: auto;
+  top: -280px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

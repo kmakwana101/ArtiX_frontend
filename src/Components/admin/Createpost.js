@@ -47,7 +47,7 @@ const YourFormComponent = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const categoriesUrl = 'https://beautiful-zipper-bee.cyclic.app/api/allcategory';
+        const categoriesUrl = 'https://odd-tan-bass-robe.cyclic.app/api/allcategory';
         const response = await axios.get(categoriesUrl);
         setCategories(response.data.data);
       } catch (error) {
@@ -80,7 +80,7 @@ const YourFormComponent = () => {
 
     try {
       console.log('Form submitted');
-      const apiUrl = `https://beautiful-zipper-bee.cyclic.app/api/posts/create?id=${formData.category}`;
+      const apiUrl = `https://odd-tan-bass-robe.cyclic.app/api/posts/create?id=${formData.category}`;
       const formDataToSend = new FormData();
       console.log('FormData before append:', formDataToSend);
 

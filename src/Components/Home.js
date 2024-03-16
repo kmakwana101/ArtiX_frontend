@@ -5,8 +5,10 @@ import Footer from './Footer';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import 'aos/dist/aos.css';
+import Loader from './Loader';
 
 const Home = () => {
+  const [loading, setLoading] = useState(true);
   function call5() {
     document.body.scrollIntoView({
       behavior: "smooth"
@@ -23,7 +25,8 @@ const Home = () => {
   useEffect(() => {
     let getdata = async () => {
       try {
-        let allpost = await axios.get("https://beautiful-zipper-bee.cyclic.app/api/posts")
+        let allpost = await axios.get("/api/posts")
+       
         let data = allpost.data.data
         // console.log(data + "--------------");
         let postfourone = [], postthree = [], postfourtwo = [], populerpost = []
@@ -43,9 +46,13 @@ const Home = () => {
         setPostthree(postthree)
         setPostFourTwo(postfourtwo)
         setPopulerPost(populerpost)
+        setInterval(() => {
+          setLoading(false);
+        }, 700);
         // console.log(posts);
       } catch (error) {
         console.log(error.message);
+          setLoading(false);
       }
     }
     getdata()
@@ -54,7 +61,9 @@ const Home = () => {
 
   return (
     <>
-      <Header />
+    {!loading ? null : (<Loader/>)}
+    {!loading && <>
+      <Header/>
       <section className="font">
         <div className="container">
           <div className="row">
@@ -217,7 +226,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer/>
+    </>}
     </>
   );
 };

@@ -17,7 +17,7 @@ const Loginn = () => {
 
     try {
       console.log(formData);
-      let response = await axios.post('https://beautiful-zipper-bee.cyclic.app/api/login', formData)
+      let response = await axios.post('https://difficult-jay-waders.cyclic.app/api/login', formData)
       if (response.status === 200) {
         seterror('')
         window.location.href = "/AdminPanel"

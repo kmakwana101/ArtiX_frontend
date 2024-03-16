@@ -4,8 +4,10 @@ import axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
 import Header from './Header';
 import Footer from './Footer';
+import Loader from './Loader';
 
 const Fullpost = () => {
+    const [loading, setLoading] = useState(true);
     const location = useLocation();
     const postId = new URLSearchParams(location.search).get('id');
     const [post, setpost] = useState()
@@ -16,13 +18,13 @@ const Fullpost = () => {
         console.log('Post ID:', postId);
         const fetchData = async () => {
             try {
-                const response = await axios.post(`https://beautiful-zipper-bee.cyclic.app/api/fullpost?id=${postId}`);
+                const response = await axios.post(`https://odd-tan-bass-robe.cyclic.app/api/fullpost?id=${postId}`);
                 setpost(response.data.data)
                 console.log(post + "--------------");
                 console.log('Post Data:', response.data.data);
 
                 // poler posts
-                let allpost = await axios.get("https://beautiful-zipper-bee.cyclic.app/api/posts")
+                let allpost = await axios.get("https://odd-tan-bass-robe.cyclic.app/api/posts")
                 let data = allpost.data.data
                 const one = Math.floor(Math.random() * data.length);
                 const two = Math.floor(Math.random() * data.length);
@@ -42,8 +44,10 @@ const Fullpost = () => {
                     recentpost.push(data[i])
                 }
                 setRecentPost(recentpost)
+                    setLoading(false);
             } catch (error) {
                 console.error('Error fetching post data:', error);
+                    setLoading(false);
             }
         };
         fetchData();
@@ -56,8 +60,11 @@ const Fullpost = () => {
         });
     }
     return (
+       
         <>
-            <Header />
+         {!loading ? null : (<Loader/>)}
+          {!loading && <>
+            <Header/>
             <section className="font">
                 <div className="container">
                     <div className="row">
@@ -263,7 +270,8 @@ const Fullpost = () => {
                     </div>
                 </div>
             </section>
-            <Footer />
+            <Footer/>
+          </>}
         </>
 
     )

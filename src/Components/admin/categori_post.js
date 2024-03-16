@@ -11,7 +11,7 @@ const SingleCategory = () => {
   useEffect(() => {
     const fetchCategory = async () => {
       try {
-        const apiUrl = `https://beautiful-zipper-bee.cyclic.app/api${pathname}`;
+        const apiUrl = `https://odd-tan-bass-robe.cyclic.app/api${pathname}`;
         // console.log(apiUrl, "++++++pathname");
         const response = await axios.get(apiUrl);
         // console.log(response.data.data[0].posts, "response");
@@ -30,10 +30,10 @@ const SingleCategory = () => {
   const handleDelete = async (postId) => {
     try {
       // Step 1: Delete the post
-      await axios.delete(`https://beautiful-zipper-bee.cyclic.app/api/posts/${postId}`);
+      await axios.delete(`https://odd-tan-bass-robe.cyclic.app/api/posts/${postId}`);
       // console.log(object);
       // Step 2: Fetch the updated data
-      const apiUrl = `https://beautiful-zipper-bee.cyclic.app/api${pathname}`;
+      const apiUrl = `https://odd-tan-bass-robe.cyclic.app/api${pathname}`;
       const response = await axios.get(apiUrl);
       let data = await response.data.data[0].posts;
 

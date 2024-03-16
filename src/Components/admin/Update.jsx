@@ -44,7 +44,7 @@ const Update = () => {
   useEffect(() => {
     const fetchPostData = async () => {
       try {
-        const response = await axios.get(`https://beautiful-zipper-bee.cyclic.app/admin/posts/update/${id}`, formData);
+        const response = await axios.get(`https://odd-tan-bass-robe.cyclic.app/admin/posts/update/${id}`, formData);
         const postData = response.data.data;
 
         // Update the state with the fetched post data

@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Header from './Header';
-import Footer from './Footer';
+
 import { Link, useLocation } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
+import Loader from './Loader';
+import Header from './Header';
+import Footer from './Footer';
 
 const Search = () => {
+    const [loading, setLoading] = useState(true);
     let location = useLocation();
     // let {search} = useParams();
     // console.log(search);
@@ -32,7 +35,10 @@ const Search = () => {
         const fetchData = async () => {
             try {
                 // Make a GET request to the backend API with the search query
-                const response = await axios.get(`https://beautiful-zipper-bee.cyclic.app/api/search?search=${searchQuery}`);
+                const response = await axios.get(`https://odd-tan-bass-robe.cyclic.app/api/search?search=${searchQuery}`);
+                setInterval(() => {
+                    setLoading(false);
+                  }, 1500);
                 call5()
 
                 setSearchResults(response.data.data);
@@ -42,12 +48,15 @@ const Search = () => {
                 console.error('Error fetching search results:', error.message);
             }
         };
+
+     
         // Call the fetchData function when the component mounts or when the 'searchQuery' changes
         fetchData();
     }, [location.search]);
 
     return (
         <>
+            {!loading ? null : (<Loader />)}
             <Header />
             <div className="container font">
                 <div className="row">
@@ -124,7 +133,7 @@ const Search = () => {
                                                 <div className="context">
                                                     <div className="hhgy1 d-none d-lg-block mt-4">
                                                         <Link to={`/category?category=${post.cat_name}&id=${post.categori}`} onClick={call5}>
-                                                            
+
                                                             <button className="shape">
                                                                 {post.cat_name}
                                                             </button>

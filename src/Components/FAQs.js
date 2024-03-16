@@ -1,21 +1,21 @@
-import React, { useContext, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import UserContext from '../context/UserContext';
+// import UserContext from '../context/UserContext';
 
 const FAQs = () => {
-  const { user } = useContext(UserContext);
+  // const { user } = useContext(UserContext);
 
-  console.log(user);
+  // console.log(user);
 
   useEffect(() => {
     AOS.init();
   }, []);
   return (
     <>
-      <Header />
+      <Header/>
       <div className="container mt-4 mb-5 font" data-aos="fade-up"
         data-aos-duration={1000}>
         <div className="row">
@@ -115,7 +115,7 @@ const FAQs = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer/>
     </>
   );
 };

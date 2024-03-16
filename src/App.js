@@ -14,12 +14,13 @@ import Terms from './Components/Terms';
 import Fullpost from './Components/Fullpost';
 import Category from './Components/Category';
 import Search from './Components/Search';
-import UserContext from './context/UserContext';
+// import UserContext from './context/UserContext';
+
 
 const App = () => {
-  const [user, setUser] = useState('asdfasdf')
+
   return (
-    <UserContext.Provider value={{user,setUser}}>
+    // <UserContext.Provider value={{user,setUser}}>
       <BrowserRouter>
         <>
           <Routes>
@@ -41,7 +42,7 @@ const App = () => {
           </Routes>
         </>
       </BrowserRouter>
-    </UserContext.Provider>
+    // </UserContext.Provider>
       )
 }
 
