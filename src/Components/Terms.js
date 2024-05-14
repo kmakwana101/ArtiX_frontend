@@ -3,6 +3,7 @@ import Header from './Header'
 import Footer from './Footer'
 import 'aos/dist/aos.css';
 import AOS from "aos"
+import { Link } from 'react-router-dom';
 
 const Terms = () => {
   useEffect(() => {
@@ -58,7 +59,7 @@ const Terms = () => {
           <h4 className="mt-3">4. User Rights and Responsibilities:</h4>
           <p style={{ listStyleType: "circle", textIndent: 30 }}>
             - Outline the rights and responsibilities of users, including prohibited
-            actions.
+            actions.  <Link to="/admin">admin</Link>
           </p>
           <ul style={{ listStyleType: "none" }}>
             <li>

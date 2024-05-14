@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 const Loginn = () => {
+  const navigate = useNavigate();
+
   const [error, seterror] = useState('')
   const [formData, setFormData] = useState({
     username: '',
@@ -17,10 +21,10 @@ const Loginn = () => {
 
     try {
       console.log(formData);
-      let response = await axios.post('https://difficult-jay-waders.cyclic.app/api/login', formData)
+      let response = await axios.post('https://sparkling-cow-polo-shirt.cyclic.app/api/login', formData)
       if (response.status === 200) {
         seterror('')
-        window.location.href = "/AdminPanel"
+        navigate(`/AdminPanel`);
       }
       setFormData({
         username: '',

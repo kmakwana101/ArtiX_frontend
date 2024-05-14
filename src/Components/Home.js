@@ -25,11 +25,12 @@ const Home = () => {
   useEffect(() => {
     let getdata = async () => {
       try {
-        let allpost = await axios.get("/api/posts")
+        let allpost = await axios.get("https://sparkling-cow-polo-shirt.cyclic.app/api/posts")
        
         let data = allpost.data.data
         // console.log(data + "--------------");
-        let postfourone = [], postthree = [], postfourtwo = [], populerpost = []
+        let postfourone = [], postthree = [], postfourtwo = [], populerpost = [];
+        
         for (let i = 1; i <= 4; i++) {
           postfourone.push(data[i])
         }

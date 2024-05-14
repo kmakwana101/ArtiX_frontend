@@ -11,7 +11,7 @@ const CategoryPage = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('https://difficult-jay-waders.cyclic.app/api/allcategory');
+                const response = await axios.get('https://sparkling-cow-polo-shirt.cyclic.app/api/allcategory');
                 setCategories(response.data.data);
             } catch (error) {
                 console.error('Error fetching categories:', error);
@@ -25,7 +25,7 @@ const CategoryPage = () => {
     useEffect(() => {
         const fetchCategory = async () => {
             try {
-                const response = await axios.get("https://difficult-jay-waders.cyclic.app/api/posts");
+                const response = await axios.get("https://sparkling-cow-polo-shirt.cyclic.app/api/posts");
                 console.log(response);
                 setPosts(response.data.data);
             } catch (error) {

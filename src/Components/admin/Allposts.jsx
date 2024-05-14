@@ -10,7 +10,7 @@ const Allposts = () => {
   useEffect(() => {
     const fetchCategory = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/posts")
+        const response = await axios.get("https://sparkling-cow-polo-shirt.cyclic.app/api/posts")
         console.log(response);
         setPosts(response.data.data);
       } catch (error) {
@@ -24,9 +24,9 @@ const Allposts = () => {
   const handleDelete = async (postId) => {
     try {
       // Step 1: Delete the post
-      await axios.delete(`https://odd-tan-bass-robe.cyclic.app/api/posts/${postId}`);
+      await axios.delete(`https://sparkling-cow-polo-shirt.cyclic.app/api/posts/${postId}`);
       // Step 2: Fetch the updated data
-      const response = await axios.get("https://odd-tan-bass-robe.cyclic.app/api/posts");
+      const response = await axios.get("https://sparkling-cow-polo-shirt.cyclic.app/api/posts");
       // let data = await response.data.data[0].posts;
       console.log(response.data.data);
       // Step 3: Set the updated data in the state

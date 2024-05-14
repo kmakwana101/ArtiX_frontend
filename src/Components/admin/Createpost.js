@@ -47,7 +47,7 @@ const YourFormComponent = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const categoriesUrl = 'https://odd-tan-bass-robe.cyclic.app/api/allcategory';
+        const categoriesUrl = 'https://sparkling-cow-polo-shirt.cyclic.app/api/allcategory';
         const response = await axios.get(categoriesUrl);
         setCategories(response.data.data);
       } catch (error) {

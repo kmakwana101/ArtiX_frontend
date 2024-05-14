@@ -31,14 +31,13 @@ const Search = () => {
             return prevSearchQuery;
         });
 
-        // Define an asynchronous function to fetch data from the backend
         const fetchData = async () => {
             try {
                 // Make a GET request to the backend API with the search query
-                const response = await axios.get(`https://odd-tan-bass-robe.cyclic.app/api/search?search=${searchQuery}`);
+                const response = await axios.get(`https://sparkling-cow-polo-shirt.cyclic.app/api/search?search=${searchQuery}`);
                 setInterval(() => {
                     setLoading(false);
-                  }, 1500);
+                }, 1500);
                 call5()
 
                 setSearchResults(response.data.data);
@@ -49,7 +48,7 @@ const Search = () => {
             }
         };
 
-     
+
         // Call the fetchData function when the component mounts or when the 'searchQuery' changes
         fetchData();
     }, [location.search]);
