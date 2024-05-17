@@ -6,8 +6,10 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import 'aos/dist/aos.css';
 import Loader from './Loader';
+import BACKEND_URL from './backend_url';
 
 const Home = () => {
+  // console.log(BACK_END_URL);
   const [loading, setLoading] = useState(true);
   function call5() {
     document.body.scrollIntoView({
@@ -25,7 +27,7 @@ const Home = () => {
   useEffect(() => {
     let getdata = async () => {
       try {
-        let allpost = await axios.get("https://sparkling-cow-polo-shirt.cyclic.app/api/posts")
+        let allpost = await axios.get(`${BACKEND_URL}/api/posts`)
        
         let data = allpost.data.data
         // console.log(data + "--------------");

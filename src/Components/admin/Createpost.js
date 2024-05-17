@@ -3,6 +3,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Header from './Adminheader';
 import { Editor } from '@tinymce/tinymce-react';
+import BACKEND_URL from '../backend_url';
+
 const YourFormComponent = () => {
 
   const [formData, setFormData] = useState({
@@ -47,7 +49,7 @@ const YourFormComponent = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const categoriesUrl = 'https://sparkling-cow-polo-shirt.cyclic.app/api/allcategory';
+        const categoriesUrl = `${BACKEND_URL}/api/allcategory`;
         const response = await axios.get(categoriesUrl);
         setCategories(response.data.data);
       } catch (error) {

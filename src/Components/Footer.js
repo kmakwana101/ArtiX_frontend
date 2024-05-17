@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import BACKEND_URL from './backend_url';
 
 const Footer = () => {
   const [category, setcategory] = useState()
@@ -9,7 +10,7 @@ const Footer = () => {
   useEffect(() => {
     let getdata = async () => {
       try {
-        let allcategory = await axios.get("https://sparkling-cow-polo-shirt.cyclic.app/api/allcategory");
+        let allcategory = await axios.get(`${BACKEND_URL}/api/allcategory`);
         setcategory(allcategory.data.data);
         // console.log(category);
       } catch (error) {
@@ -33,7 +34,7 @@ const Footer = () => {
       gmail : Gmail
     }
     setGmail('')
-    await axios.post("https://odd-tan-bass-robe.cyclic.app/api/gmail" ,data)
+    await axios.post(`${BACKEND_URL}/api/gmail` ,data)
     console.log(Gmail + "Sent Email");
   }
   return (

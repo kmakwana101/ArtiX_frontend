@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import BACKEND_URL from './backend_url';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Header = () => {
   useEffect(() => {
     let getdata = async () => {
       try {
-        let allcategory = await axios.get("https://sparkling-cow-polo-shirt.cyclic.app/api/allcategory");
+        let allcategory = await axios.get(`${BACKEND_URL}/api/allcategory`);
         setcategory(allcategory.data.data);
         // console.log(category);
       } catch (error) {

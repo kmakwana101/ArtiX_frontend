@@ -5,6 +5,7 @@ import Header from './Header';
 import Footer from './Footer';
 import ReactHtmlParser from 'react-html-parser';
 import Loader from './Loader';
+import BACKEND_URL from './backend_url';
 
 const Category = () => {
     const [loading, setLoading] = useState(true);
@@ -23,8 +24,8 @@ const Category = () => {
         let getdata = async () => {
             // console.log(PageNo + "888888888888888");
             try {
-                let allpost = await axios.get(`https://sparkling-cow-polo-shirt.cyclic.app/api/category?category=${Category}&id=${postId}&page=${PageNo}`);
-                let nextposts = await axios.get(`https://sparkling-cow-polo-shirt.cyclic.app/api/category?category=${Category}&id=${postId}&page=${PageNo + 1}`);
+                let allpost = await axios.get(`${BACKEND_URL}/api/category?category=${Category}&id=${postId}&page=${PageNo}`);
+                let nextposts = await axios.get(`${BACKEND_URL}/api/category?category=${Category}&id=${postId}&page=${PageNo + 1}`);
                 setAllPostLen(nextposts.data.data.length)
                 if (nextposts.data.data.lengh <= 0) {
                     setAllPostLen(false)

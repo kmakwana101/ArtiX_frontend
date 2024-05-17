@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
 import { Link, useLocation } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import Loader from './Loader';
 import Header from './Header';
 import Footer from './Footer';
+import BACKEND_URL from './backend_url';
 
 const Search = () => {
     const [loading, setLoading] = useState(true);
@@ -34,7 +34,7 @@ const Search = () => {
         const fetchData = async () => {
             try {
                 // Make a GET request to the backend API with the search query
-                const response = await axios.get(`https://sparkling-cow-polo-shirt.cyclic.app/api/search?search=${searchQuery}`);
+                const response = await axios.get(`${BACKEND_URL}/api/search?search=${searchQuery}`);
                 setInterval(() => {
                     setLoading(false);
                 }, 1500);

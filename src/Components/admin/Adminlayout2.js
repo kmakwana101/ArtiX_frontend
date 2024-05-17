@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Header from './Adminheader';
+import BACKEND_URL from '../backend_url';
 
 const CategoryPage = () => {
     const [categories, setCategories] = useState([]);
@@ -11,7 +12,7 @@ const CategoryPage = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('https://sparkling-cow-polo-shirt.cyclic.app/api/allcategory');
+                const response = await axios.get(`${BACKEND_URL}/api/allcategory`);
                 setCategories(response.data.data);
             } catch (error) {
                 console.error('Error fetching categories:', error);
@@ -25,7 +26,7 @@ const CategoryPage = () => {
     useEffect(() => {
         const fetchCategory = async () => {
             try {
-                const response = await axios.get("https://sparkling-cow-polo-shirt.cyclic.app/api/posts");
+                const response = await axios.get(`${BACKEND_URL}/api/posts`);
                 console.log(response);
                 setPosts(response.data.data);
             } catch (error) {

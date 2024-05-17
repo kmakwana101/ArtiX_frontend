@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Header from "./Adminheader"
+import BACKEND_URL from '../backend_url';
 
 const SingleCategory = () => {
   
@@ -11,7 +12,7 @@ const SingleCategory = () => {
   useEffect(() => {
     const fetchCategory = async () => {
       try {
-        const apiUrl = `https://sparkling-cow-polo-shirt.cyclic.app/api${pathname}`;
+        const apiUrl = `${BACKEND_URL}/api${pathname}`;
         // console.log(apiUrl, "++++++pathname");
         const response = await axios.get(apiUrl);
         // console.log(response.data.data[0].posts, "response");
@@ -30,10 +31,10 @@ const SingleCategory = () => {
   const handleDelete = async (postId) => {
     try {
       // Step 1: Delete the post
-      await axios.delete(`https://sparkling-cow-polo-shirt.cyclic.app/api/posts/${postId}`);
+      await axios.delete(`${BACKEND_URL}/api/posts/${postId}`);
       // console.log(object);
       // Step 2: Fetch the updated data
-      const apiUrl = `https://sparkling-cow-polo-shirt.cyclic.app/api${pathname}`;
+      const apiUrl = `${BACKEND_URL}/api${pathname}`;
       const response = await axios.get(apiUrl);
       let data = await response.data.data[0].posts;
       setPosts(data);

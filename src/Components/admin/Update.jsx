@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from './Adminheader';
 import { Editor } from '@tinymce/tinymce-react';
+import BACKEND_URL from '../backend_url';
 
 const Update = () => {
   const { id } = useParams();
@@ -44,7 +45,7 @@ const Update = () => {
   useEffect(() => {
     const fetchPostData = async () => {
       try {
-        const response = await axios.get(`https://sparkling-cow-polo-shirt.cyclic.app/admin/posts/update/${id}`, formData);
+        const response = await axios.get(`${BACKEND_URL}/admin/posts/update/${id}`, formData);
         const postData = response.data.data;
 
         // Update the state with the fetched post data

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import BACKEND_URL from '../backend_url';
 
 
 const Loginn = () => {
@@ -21,7 +22,7 @@ const Loginn = () => {
 
     try {
       console.log(formData);
-      let response = await axios.post('https://sparkling-cow-polo-shirt.cyclic.app/api/login', formData)
+      let response = await axios.post(`${BACKEND_URL}/api/login`, formData)
       if (response.status === 200) {
         seterror('')
         navigate(`/AdminPanel`);

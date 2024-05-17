@@ -5,6 +5,7 @@ import ReactHtmlParser from 'react-html-parser';
 import Header from './Header';
 import Footer from './Footer';
 import Loader from './Loader';
+import BACKEND_URL from './backend_url';
 
 const Fullpost = () => {
     const [loading, setLoading] = useState(true);
@@ -18,13 +19,13 @@ const Fullpost = () => {
         console.log('Post ID:', postId);
         const fetchData = async () => {
             try {
-                const response = await axios.post(`https://sparkling-cow-polo-shirt.cyclic.app/api/fullpost?id=${postId}`);
+                const response = await axios.post(`${BACKEND_URL}/api/fullpost?id=${postId}`);
                 setpost(response.data.data)
                 console.log(post + "--------------");
                 console.log('Post Data:', response.data.data);
 
                 // poler posts
-                let allpost = await axios.get("https://sparkling-cow-polo-shirt.cyclic.app/api/posts")
+                let allpost = await axios.get(`${BACKEND_URL}/api/posts`)
                 let data = allpost.data.data
                 const one = Math.floor(Math.random() * data.length);
                 const two = Math.floor(Math.random() * data.length);

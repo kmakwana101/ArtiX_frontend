@@ -3,6 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Header from './Header';
 import Footer from './Footer';
+
 // import UserContext from '../context/UserContext';
 
 const Contact = () => {
